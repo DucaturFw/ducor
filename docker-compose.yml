@@ -39,7 +39,5 @@ services:
 
   rethinkdb:
     image: "rethinkdb"
-    volumes:
-      - ../ducor-backend/rethinkdb_data/:/data
     ports:
       - "28015:28015"
