@@ -4,3 +4,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/DucaturFw/ducor-frontend.git
+[submodule "test/ducor-eth"]
+	path = test/ducor-eth
+	url = https://github.com/DucaturFw/ducor-eth.git
