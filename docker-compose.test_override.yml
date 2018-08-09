@@ -31,3 +31,10 @@ services:
       - -a
       - '10'
       - --db=/ethereum_data
+
+  rethinkdb:
+    image: "rethinkdb"
+    volumes:
+      - ./.rethinkdb_data/:/data
+    ports:
+      - "28015:28015"

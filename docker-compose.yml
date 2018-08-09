@@ -10,11 +10,9 @@ services:
     env_file: ./backend/.env
     environment:
       - NODE_ENV=development
-      - DUCOR_EOS_RETHINKHOST=rethinkdb
+      - DUCOR_EOS_RETHINKHOST=localhost
       - DUCOR_ETH_PROVIDER=ws://localhost:8545
       - DUCOR_API_PORT=3091
-    depends_on:
-      - rethinkdb
     restart: on-failure
 
   frontend:
@@ -28,8 +26,3 @@ services:
       - "80:80"
     depends_on:
       - backend
-
-  rethinkdb:
-    image: "rethinkdb"
-    ports:
-      - "28015:28015"
