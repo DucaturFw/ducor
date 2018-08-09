@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    environment:
+      - NODE_ENV=development
+      - DUCOR_API_PORT=3091
+      - DUCOR_ETH_MASTER_ADDRESS=0x85a84691547b7ccf19d7c31977a7f8c0af1fb25a
+      - DUCOR_ETH_PROVIDER=ws://ethereum:8545
+      - DUCOR_ETH_ORACLE_ACCOUNT=0xdf08f82de32b8d460adbe8d72043e3a7e25a3b39
+    depends_on:
+      - rethinkdb
+      - ethereum
+
+  frontend:
+    build:
+      args:
+        - DUCOR_API_URL=localhost
+        - DUCOR_API_PORT=3091
+
+  ethereum:
+    image: trufflesuite/ganache-cli
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./.ethereum_data:/ethereum_data
+    entrypoint:
+      - node
+      - ./build/cli.node.js
+      - -n
+      - -a
+      - '10'
+      - --db=/ethereum_data
