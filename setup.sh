@@ -1,2 +1,4 @@
-git clone https://github.com/DucaturFw/ducor-backend.git ../ducor-backend
-git clone https://github.com/DucaturFw/ducor-frontend.git ../ducor-frontend
+echo "Fetching submodules"
+git submodule update --init --recursive
+echo "..."
+echo "DO NOT FORGET TO UPDATE .env FILE!"
