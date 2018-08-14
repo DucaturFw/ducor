@@ -7,3 +7,6 @@
 [submodule "test/ducor-eth"]
 	path = test/ducor-eth
 	url = https://github.com/DucaturFw/ducor-eth.git
+[submodule "test/eos/ducor-eos"]
+	path = test/eos/ducor-eos
+	url = https://github.com/DucaturFw/Ducat-EOS.git
