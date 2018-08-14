@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   backend:
@@ -23,6 +23,17 @@ services:
       args:
         - DUCOR_API_URL=localhost
         - DUCOR_API_PORT=3091
+  eos:
+    image: eosio/eos-dev:v1.1.1
+    ports:
+      - "8888:8888"
+      - "9876:9876"
+    expose:
+      - 8888
+      - 9876
+    volumes:
+      - ./test/eos/data:/opt/eosio/bin/data-dir
+    command: /opt/eosio/bin/nodeosd.sh --data-dir /opt/eosio/bin/data-dir -e --contracts-console
 
   ethereum:
     image: trufflesuite/ganache-cli
