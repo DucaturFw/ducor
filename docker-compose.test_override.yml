@@ -9,14 +9,18 @@ services:
       - DUCOR_ETH_PROVIDER=ws://ethereum:8545
       - DUCOR_ETH_ORACLE_ACCOUNT=0xdf08f82de32b8d460adbe8d72043e3a7e25a3b39
       - DUCOR_ETH_HOST=ethereum
+      - DUCOR_QTUM_HOST=qtum
     depends_on:
+      - test
       - rethinkdb
+
+  test:
+    build:
+      context: ./test
+    depends_on:
       - ethereum
-    volumes:
-      - ./test:/usr/src/test
-    working_dir: /usr/src/test
-    entrypoint:
-      - ./entrypoint.sh
+
+#  travis:
 
   frontend:
     build:
@@ -31,14 +35,31 @@ services:
     expose:
       - 8545
     volumes:
-      - ./.ethereum_data:/ethereum_data
+#      - ./.ethereum_data:/ethereum_data
       - ./test/run.sh:/src/run.sh
     entrypoint:
       - ./run.sh
 
   rethinkdb:
     image: "rethinkdb"
-    volumes:
-      - ./.rethinkdb_data/:/data
+#    volumes:
+#      - ./.rethinkdb_data/:/data
     ports:
       - "28015:28015"
+
+# TODO: fix and test
+#  qtum:
+#    image: "qtum/qtum"
+#    volumes:
+#      - ./test/qtum.conf:/root/.qtum/qtum.conf
+#      - ./.qtum_data/:/root/.qtum/
+#    expose:
+#      - 3888
+#      - 3889
+#      - 13888
+#      - 13889
+#    ports:
+#      - "3888:3888"
+#      - "3889:3889"
+#      - "13888:13888"
+#      - "13889:13889"
