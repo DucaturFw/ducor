@@ -33,7 +33,12 @@ services:
       - 9876
     volumes:
       - ./test/eos/data:/opt/eosio/bin/data-dir
-    command: /opt/eosio/bin/nodeosd.sh --data-dir /opt/eosio/bin/data-dir -e --contracts-console
+      - ./test/eos/ducor-eos/contracts:/contracts
+      - ./test/eos/bin/abigen.sh:/abigen.sh
+      - ./test/eos/bin/compile.sh:/compile.sh
+      - ./test/eos/bin/eosiocppfix.sh:/eosiocppfix.sh
+      - ./test/eos/bin/run.sh:/run.sh
+    command: /run.sh
 
   ethereum:
     image: trufflesuite/ganache-cli
