@@ -35,15 +35,15 @@ services:
     expose:
       - 8545
     volumes:
-#      - ./.ethereum_data:/ethereum_data
+      - ./.ethereum_data:/ethereum_data
       - ./test/run.sh:/src/run.sh
     entrypoint:
       - ./run.sh
 
   rethinkdb:
     image: "rethinkdb"
-#    volumes:
-#      - ./.rethinkdb_data/:/data
+    volumes:
+      - ./.rethinkdb_data/:/data
     ports:
       - "28015:28015"
 
