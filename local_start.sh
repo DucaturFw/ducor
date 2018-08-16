@@ -1,1 +1,2 @@
-docker-compose -f docker-compose.yml -f docker-compose.test_override.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.test_override.yml up $1
+
