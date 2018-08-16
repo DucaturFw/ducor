@@ -1,8 +1,8 @@
 require("dotenv").config();
-require("babel-register")({
-  ignore: /node_modules\/(?!zeppelin-solidity)/
-});
-require("babel-polyfill");
+require('babel-register')({
+  ignore: /node_modules\/(?!openzeppelin-solidity\/test\/helpers)/
+})
+require('babel-polyfill')
 
 module.exports = {
   networks: {
