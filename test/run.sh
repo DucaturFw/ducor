@@ -37,7 +37,7 @@ start_ganache() {
   )
 
   echo "Run Ganache node"
-  node ./build/cli.node.js --gasLimit 0xfffffffffff --port "$ganache_port" "${accounts[@]}" --db=/ethereum_data
+  node ./build/cli.node.js --gasLimit 0xfffffffffff --host=0.0.0.0 --port "$ganache_port" "${accounts[@]}" --db=/ethereum_data
   ganache_pid=$!
 }
 
