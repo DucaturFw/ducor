@@ -23,6 +23,6 @@ services:
         - DUCOR_API_URL=${BACKEND_IP_OR_DNS}
         - DUCOR_API_PORT=3091
     ports:
-      - "80:80"
+      - "3090:80"
     depends_on:
       - backend
