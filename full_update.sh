@@ -1,1 +1,1 @@
-git pull --recurse-submodules && ./update.sh && ./start.sh
+git pull --recurse-submodules && ./update.sh && ./stop.sh && ./start.sh
