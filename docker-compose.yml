@@ -7,17 +7,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3091:3091"
-    env_file:
-      - ./backend/.env
-      - ./.env
+    env_file: ./backend/.env
     environment:
       - NODE_ENV=development
       - DUCOR_EOS_RETHINKHOST=localhost
       - DUCOR_ETH_PROVIDER=ws://localhost:8545
       - DUCOR_API_PORT=3091
-      - DUCOR_EOS_ENDPOINT=
-      - DUCOR_EOS_CHAINID=
-      - DUCOR_EOS_WATCH_DELAY=
     restart: on-failure
 
   frontend:
