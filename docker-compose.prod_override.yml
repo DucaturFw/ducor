@@ -4,11 +4,6 @@ services:
   backend:
     environment:
       - NODE_ENV=production
-      - DUCOR_EOS_RETHINKHOST=${RETHINKDB_PROD_IP_OR_DNS}
-      - DUCOR_ETH_PROVIDER=ws://${ETH_PROVIDER_PROD_IP_OR_DNS}:8545
+      - DUCOR_EOS_RETHINKHOST=${DUCOR_EOS_RETHINKHOST}
+      - DUCOR_ETH_PROVIDER=${DUCOR_ETH_PROVIDER}
     network_mode: host
-
-  frontend:
-    build:
-      args:
-        - DUCOR_API_URL=${BACKEND_PROD_IP_OR_DNS}

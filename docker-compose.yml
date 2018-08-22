@@ -27,7 +27,7 @@ services:
       context: ./frontend/
       dockerfile: Dockerfile
       args:
-        - DUCOR_API_URL=${BACKEND_IP_OR_DNS}
+        - DUCOR_API_URL=${DUCOR_API_URL}
         - DUCOR_API_PORT=3091
     ports:
       - "3090:80"
