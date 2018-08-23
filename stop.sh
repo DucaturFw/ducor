@@ -1,1 +1,1 @@
-docker-compose -f docker-compose.yml -f docker-compose.prod_override.yml down
+docker-compose -f docker-compose.yml down

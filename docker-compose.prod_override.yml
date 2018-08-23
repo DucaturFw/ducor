@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  backend:
-    environment:
-      - NODE_ENV=production
-      - DUCOR_EOS_RETHINKHOST=${DUCOR_EOS_RETHINKHOST}
-      - DUCOR_ETH_PROVIDER=${DUCOR_ETH_PROVIDER}
-    network_mode: host

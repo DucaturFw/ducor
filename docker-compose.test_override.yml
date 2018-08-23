@@ -9,6 +9,7 @@ services:
       - DUCOR_ETH_PROVIDER=ws://ethereum:8545
       - DUCOR_ETH_ORACLE_ACCOUNT=0xdf08f82de32b8d460adbe8d72043e3a7e25a3b39
       - DUCOR_ETH_HOST=ethereum
+    network_mode: bridge
     depends_on:
       - rethinkdb
       - ethereum
